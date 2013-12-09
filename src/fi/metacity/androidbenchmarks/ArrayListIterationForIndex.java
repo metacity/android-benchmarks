@@ -6,23 +6,22 @@ import io.leocad.delta.BenchmarkTask;
 
 public class ArrayListIterationForIndex extends BenchmarkTask {
 
-	ArrayList<Integer> mList;
-	Integer state;
+	ArrayList<Integer> mRandomIntegers;
 	
 	@Override
     protected void onPreExecute() {
-	    mList = new ArrayList<Integer>();
-	    state = Integer.valueOf(0);
-	    for (int num : MainActivity.generateRandomInts(100)) {
-	    	mList.add(num);
+	    mRandomIntegers = new ArrayList<Integer>();
+	    for (int num : MainActivity.generateRandomInts(100000)) {
+	    	mRandomIntegers.add(num);
 	    }
     }
 
 	@Override
 	protected Object task() {
-		int len = mList.size();
+		int state = 0;
+		int len = mRandomIntegers.size();
 		for (int i = 0; i < len; ++i) {
-			state ^= mList.get(i);
+			state ^= mRandomIntegers.get(i);
 		}
 		return state;
 	}

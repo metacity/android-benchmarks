@@ -3,18 +3,19 @@ package fi.metacity.androidbenchmarks;
 import io.leocad.delta.BenchmarkTask;
 
 public class GetterSetterTest extends BenchmarkTask {
+	
 	GetterSetterClass mTestClass;
-	int[] mArrayOfRandoms;
+	int[] mRandomInts;
 	
 	@Override
     protected void onPreExecute() {
 		mTestClass = new GetterSetterClass();
-	    mArrayOfRandoms = MainActivity.generateRandomInts(100);
+	    mRandomInts = MainActivity.generateRandomInts(100000);
     }
 
 	@Override
     protected Object task() {
-		for (int num : mArrayOfRandoms) {
+		for (int num : mRandomInts) {
 			mTestClass.setX(mTestClass.getX() ^ num);
 		}
 		return mTestClass;

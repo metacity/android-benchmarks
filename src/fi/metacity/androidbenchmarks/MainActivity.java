@@ -6,16 +6,16 @@ import io.leocad.delta.Delta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
-	private static final String TAG = "MainActivity";
 	
 	private final List<BenchmarkTask> mBenchmarks = new ArrayList<BenchmarkTask>();
 	
@@ -44,8 +44,10 @@ public class MainActivity extends Activity {
 		new Delta() {
 			@Override
 			public void onPostExecute(BenchmarkResult result) {
-				Log.i(TAG, "Duration: " + result.benchmarkDurationSecs + " sec");
-				Log.i(TAG, "AVG per task: " + result.benchmarkAvgTaskTimeNs + " ns");
+				String msg = "Cycles: " + result.benchmarkCycles + "\n" +
+						"Total time: " + result.benchmarkDurationSecs + " sec\n"
+						+ "Avg. time per task: " + result.benchmarkAvgTaskTimeNs + " ns";
+				new AlertDialog.Builder(MainActivity.this).setMessage(msg).show();
 			}
 		}.benchmark(this, task.getClass(), Integer.parseInt(mIterationsSpinner.getSelectedItem().toString()));
 	}
@@ -55,12 +57,25 @@ public class MainActivity extends Activity {
 		mBenchmarks.add(new DirectFieldAccessTest());
 		mBenchmarks.add(new ArrayListIterationForEach());
 		mBenchmarks.add(new ArrayListIterationForIndex());
+		mBenchmarks.add(new StringCatenationTest());
+		mBenchmarks.add(new StringBuilderTest());
+		mBenchmarks.add(new UnrolledLoopTest());
+		mBenchmarks.add(new NormalLoopTest());
+		mBenchmarks.add(new InverseLoopTest());
 	}
 	
 	public static int[] generateRandomInts(int size) {
 		int[] randoms = new int[size];
 		for (int i = 0; i < randoms.length; ++i) {
 			randoms[i] = (int)(Math.random() * Integer.MAX_VALUE);
+		}
+		return randoms;
+	}
+	
+	public static String[] generateRandomUUIDStrings(int size) {
+		String[] randoms = new String[size];
+		for (int i = 0; i < randoms.length; ++i) {
+			randoms[i] = UUID.randomUUID().toString();
 		}
 		return randoms;
 	}

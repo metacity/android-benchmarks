@@ -4,20 +4,27 @@
     <string name="app_name">AndroidBenchmarks</string>
     <string name="action_settings">Settings</string>
     <string-array name="benchmarks">
-        <item >Getter/Setter Test</item>
-        <item >Direct Field Access Test</item>
-        <item >ArrayList - For Each</item>
-        <item >ArrayList - Index For Loop</item>
+        <item >[1] Getter/Setter Test</item>
+        <item >[1] Direct Field Access Test</item>
+        <item >[2] ArrayList - For Each</item>
+        <item >[2] ArrayList - Index For Loop</item>
+        <item >[3] String Catenation (+=)</item>
+        <item >[3] StringBuilder</item>
+        <item >[4] Unrolled Loop</item>
+        <item >[4] Normal Loop</item>
+        <item >[5] Inverse For Loop</item>
     </string-array>
     <string-array name="iterationcounts">
         <item >10</item>
         <item >100</item>
         <item >1000</item>
-        <item >10000</item>
+        <item >10000</item><item>50000</item>
         <item >100000</item>
-        <item >1000000</item>
+        <item>500000</item><item >1000000</item>
         <item >10000000</item>
         <item >100000000</item>
+        
+        
     </string-array>
 
 </resources>

@@ -6,21 +6,20 @@ import io.leocad.delta.BenchmarkTask;
 
 public class ArrayListIterationForEach extends BenchmarkTask {
 
-	ArrayList<Integer> mList;
-	Integer state;
+	ArrayList<Integer> mRandomIntegers;
 	
 	@Override
     protected void onPreExecute() {
-	    mList = new ArrayList<Integer>();
-	    state = Integer.valueOf(0);
-	    for (int num : MainActivity.generateRandomInts(100)) {
-	    	mList.add(num);
+	    mRandomIntegers = new ArrayList<Integer>();
+	    for (int num : MainActivity.generateRandomInts(100000)) {
+	    	mRandomIntegers.add(num);
 	    }
     }
 
 	@Override
 	protected Object task() {
-		for (Integer num : mList) {
+		int state = 0;
+		for (Integer num : mRandomIntegers) {
 			state ^= num;
 		}
 		return state;
