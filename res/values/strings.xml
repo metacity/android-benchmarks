@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AndroidBenchmarks</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="benchmarks">
+        <item >Getter/Setter Test</item>
+        <item >Direct Field Access Test</item>
+        <item >ArrayList - For Each</item>
+        <item >ArrayList - Index For Loop</item>
+    </string-array>
+    <string-array name="iterationcounts">
+        <item >10</item>
+        <item >100</item>
+        <item >1000</item>
+        <item >10000</item>
+        <item >100000</item>
+        <item >1000000</item>
+        <item >10000000</item>
+        <item >100000000</item>
+    </string-array>
+
+</resources>
