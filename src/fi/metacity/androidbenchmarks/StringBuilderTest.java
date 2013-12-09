@@ -8,7 +8,7 @@ public class StringBuilderTest extends BenchmarkTask {
 	
 	@Override
     protected void onPreExecute() {
-		mRandomsStrings = MainActivity.generateRandomUUIDStrings(100000);
+		mRandomsStrings = MainActivity.generateRandomUUIDStrings(1000);
     }
 
 	@Override
