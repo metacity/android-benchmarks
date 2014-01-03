@@ -16,12 +16,12 @@ public class NormalLoopTest extends BenchmarkTask {
 	@Override
 	protected Object task() {
 		final int xor = 123456789;
-		
+
 		int len = mRandomInts.length;
 		for (int i = 0; i < len; ++i) {
 			mRandomInts[i] ^= xor;
 		}
-		
+
 		return null;
 	}
 

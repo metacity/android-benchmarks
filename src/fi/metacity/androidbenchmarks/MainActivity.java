@@ -16,9 +16,9 @@ import android.view.View;
 import android.widget.Spinner;
 
 public class MainActivity extends Activity {
-	
+
 	private final List<BenchmarkTask> mBenchmarks = new ArrayList<BenchmarkTask>();
-	
+
 	private Spinner mBenchmarkSpinner;
 	private Spinner mIterationsSpinner;
 
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		mBenchmarkSpinner = (Spinner) findViewById(R.id.benchmark_spinner);
 		mIterationsSpinner = (Spinner) findViewById(R.id.iterations_spinner);
 		generateBenchmarks();
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+
 	public void onRunBenchmarkClicked(View v) {
 		BenchmarkTask task = mBenchmarks.get(mBenchmarkSpinner.getSelectedItemPosition());
 		new Delta() {
@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 			}
 		}.benchmark(this, task.getClass(), Integer.parseInt(mIterationsSpinner.getSelectedItem().toString()));
 	}
-	
+
 	private void generateBenchmarks() {
 		mBenchmarks.add(new GetterSetterTest());
 		mBenchmarks.add(new DirectFieldAccessTest());
@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
 		mBenchmarks.add(new NormalLoopTest());
 		mBenchmarks.add(new InverseLoopTest());
 	}
-	
+
 	public static int[] generateRandomInts(int size) {
 		int[] randoms = new int[size];
 		for (int i = 0; i < randoms.length; ++i) {
@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 		}
 		return randoms;
 	}
-	
+
 	public static String[] generateRandomUUIDStrings(int size) {
 		String[] randoms = new String[size];
 		for (int i = 0; i < randoms.length; ++i) {

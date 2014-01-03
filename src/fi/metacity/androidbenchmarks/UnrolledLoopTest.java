@@ -16,7 +16,7 @@ public class UnrolledLoopTest extends BenchmarkTask {
 	@Override
 	protected Object task() {
 		final int xor = 123456789;
-		
+
 		int len = mRandomInts.length;
 		for (int i = 0; i < len; i += 4) {
 			mRandomInts[i] ^= xor;
@@ -24,7 +24,7 @@ public class UnrolledLoopTest extends BenchmarkTask {
 			mRandomInts[i+2] ^= xor;
 			mRandomInts[i+3] ^= xor;
 		}
-		
+
 		return null;
 	}
 

@@ -16,11 +16,11 @@ public class InverseLoopTest extends BenchmarkTask {
 	@Override
 	protected Object task() {
 		final int xor = 123456789;
-		
+
 		for (int i = mRandomInts.length - 1; i >= 0; --i) {
 			mRandomInts[i] ^= xor;
 		}
-		
+
 		return null;
 	}
 
