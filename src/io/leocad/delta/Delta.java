@@ -45,7 +45,7 @@ public abstract class Delta {
 						}
 					});
 				}
-			};
+			}
 		}.start();
 	}
 	private void lockOrientationChanges(Activity activity) {
